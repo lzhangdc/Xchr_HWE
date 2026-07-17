@@ -15,18 +15,44 @@ source('RA_Xchr_HWE.R')
 
 In Xchr NPR, most females are diploid while most males are hemizygous. Suppose the variant of interest is bi-allelic and A is the reference allele. Suppose we have a homogeneous population, female genotype counts are denoted as $f_{AA}$, $f_{AB}$ and $f_{BB}$; while male genotype counts are denoted as $m_A$ and $m_B$. 
 
-Call `ra_hwe_test(genotype, sex)` to perform the test.
+Use the `RA_Xchr` function to perform the test. Input arguments include
+- `gF`: female genotype counts. A vector of length 3. `gF = c(fAA, fAB, fBB)`.
+- `gM`: male genotype counts. A vector of length 2. `gM = c(mA, mB)`.
+- `snp_type`: type of SNP. `snp_type = 'NPR' ` for Xchr NPR SNPs and `snp_type = 'PAR' ` for Xchr PAR SNPs.
+- `sdMAF`: sdMAF status. Logical. If `snp_type = TRUE`, the reference allele frequency is estimated separately in females and males; if `snp_type = FALSE`, the reference allele frequency is estimated using a pooled sample of females and males. If the objective is to perform a joint test of HWD and sdMAF (i.e. `joint_test = TRUE`), `sdMAF` should be set to `NULL`. 
+- `joint_test`: whether to jointly test HWD and sdMAF. Logical. If `joint_test = TRUE`, the function will perform a joint test of HWD and sdMAF.
 
-### Joint test of Hardy-Weinberg disequilibrium and sex-difference in minor allele frequency (sdMAF)
+### Example tutorial on how to test HWE for an NPR SNP
+
+Suppose the genotype counts of an Xchr NPR SNP is $f_{AA} = 86$, $f_{AB} = 228$, $f_{BB} = 22$, $m_A = 222$, and $m_B = 94$. This example SNP is rs6655837 of the AFR super population of the 1000 Genome Project. 
 
 ```r
-RA_Xchr(gF, gM, snp_type='NPR', sdMAF, use_male)
+female_sample <- c(86, 228, 22)
+male_sample <- c(222, 94)
 ```
 
 
+### Joint test of HWE and no sdMAF
+
 ```r
-RA_Xchr(gF, gM, snp_type='NPR', sdMAF, use_male)
+RA_Xchr_github(gF = female_sample, gM = male_sample, snp_type='NPR', sdMAF = NULL, joint_test = TRUE)
+[1] 1.06641e-15
 ```
+
+### Test of HWE assuming no sdMAF
+
+```r
+RA_Xchr_github(gF = female_sample, gM = male_sample, snp_type='NPR', sdMAF = FALSE, joint_test = FALSE)
+[1] 2.205595e-14
+```
+
+### Test of HWE assuming sdMAF
+
+```r
+RA_Xchr_github(gF = female_sample, gM = male_sample, snp_type='NPR', sdMAF = TRUE, joint_test = FALSE)
+[1] 7.260256e-14
+```
+
 
 ### X chromosome PAR SNPs
 
