@@ -15,7 +15,7 @@ source('RA_Xchr_HWE.R')
 
 In Xchr NPR, most females are diploid while most males are hemizygous. Suppose the variant of interest is bi-allelic and A is the reference allele. Suppose we have a homogeneous population, female genotype counts are denoted as $f_{AA}$, $f_{AB}$ and $f_{BB}$; while male genotype counts are denoted as $m_A$ and $m_B$. 
 
-### Input to the 'RA_Xchr' function. 
+Call `ra_hwe_test(genotype, sex)` to perform the test.
 
 ### Joint test of Hardy-Weinberg disequilibrium and sex-difference in minor allele frequency (sdMAF)
 
