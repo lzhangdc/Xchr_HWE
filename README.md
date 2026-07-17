@@ -31,7 +31,7 @@ female_sample <- c(86, 228, 22)
 male_sample <- c(222, 94)
 ```
 
-### Joint test of HWE and no sdMAF, T<sub>RA, X-NPR<sub>F&M, p̂ </sub>
+### Joint test of HWE and no sdMAF
 
 ```r
 RA_Xchr_github(gF = female_sample, gM = male_sample, snp_type='NPR', sdMAF = NULL, joint_test = TRUE)
