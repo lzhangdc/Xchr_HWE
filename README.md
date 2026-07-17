@@ -11,7 +11,7 @@ source('RA_Xchr_HWE.R')
 ```
 
 
-### X chromosome NPR SNPs
+### Non-pseudoautosomal Region (NPR)
 
 ```r
 RA_Xchr(gF, gM, snp_type='NPR', sdMAF, use_male)
