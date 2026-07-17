@@ -68,7 +68,23 @@ Use the `RA_Xchr` function to perform the test. Input arguments include
 
 Suppose the genotype counts of an Xchr PAR SNP is $f_{AA} = 88$, $f_{AB} = 239$, $f_{BB} = 9$, $m_{AA} = 85$, $m_{AB} = 218$, and $m_{BB} = 13$. This examplary SNP is rs867436760 in the AFR super population of the 1000 Genome Project. 
 
+
 ```r
 female_sample <- c(88, 239, 9)
 male_sample <- c(85, 218, 13)
 ``` 
+
+### Test of HWE assuming no sdMAF
+
+```r
+RA_Xchr_github(gF = female_sample, gM = male_sample, snp_type='PAR', sdMAF = FALSE, joint_test = FALSE)
+[1] 1.032235e-34
+```
+
+### Test of HWE assuming sdMAF
+
+```r
+RA_Xchr_github(gF = female_sample, gM = male_sample, snp_type='PAR', sdMAF = TRUE, joint_test = FALSE)
+[1] 1.273039e-33
+```
+
