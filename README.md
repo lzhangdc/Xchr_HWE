@@ -1,4 +1,4 @@
-# Xchr_HWE
+# Test Hardy-Weinberg Equilibrium (HWE) on the X chromosome
 The robust allele-based regression framework for testing Hardy-Weinberg equilibrium on X chromosome
 
 ## Usage
@@ -11,7 +11,17 @@ source('RA_Xchr_HWE.R')
 ```
 
 
-### Non-pseudoautosomal Region (NPR)
+## Non-pseudoautosomal Region (NPR)
+
+In Xchr NPR, most females are diploid while most males are hemizygous. Suppose the variant of interest is bi-allelic and A is the reference allele. Suppose we have a homogeneous population, female genotype counts are denoted as $f_{AA}$, $f_{AB}$ and $f_{BB}$.
+
+
+### Joint test of Hardy-Weinberg disequilibrium and sex-difference in minor allele frequency (sdMAF)
+
+```r
+RA_Xchr(gF, gM, snp_type='NPR', sdMAF, use_male)
+```
+
 
 ```r
 RA_Xchr(gF, gM, snp_type='NPR', sdMAF, use_male)
