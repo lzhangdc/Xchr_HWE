@@ -1,5 +1,7 @@
 # Test Hardy-Weinberg Equilibrium (HWE) on the X chromosome
-The robust allele-based regression framework for testing Hardy-Weinberg equilibrium on X chromosome
+The robust allele-based regression framework for testing Hardy-Weinberg equilibrium on X chromosome. 
+
+The preprint is available at https://www.biorxiv.org/content/10.64898/2026.05.17.725730v1.full . 
 
 ## Usage
 
@@ -34,21 +36,21 @@ male_sample <- c(222, 94)
 ### Joint test of HWE and no sdMAF
 
 ```r
-RA_Xchr_github(gF = female_sample, gM = male_sample, snp_type='NPR', sdMAF = NULL, joint_test = TRUE)
+RA_Xchr(gF = female_sample, gM = male_sample, snp_type='NPR', sdMAF = NULL, joint_test = TRUE)
 [1] 1.06641e-15
 ```
 
 ### Test of HWE assuming no sdMAF
 
 ```r
-RA_Xchr_github(gF = female_sample, gM = male_sample, snp_type='NPR', sdMAF = FALSE, joint_test = FALSE)
+RA_Xchr(gF = female_sample, gM = male_sample, snp_type='NPR', sdMAF = FALSE, joint_test = FALSE)
 [1] 2.205595e-14
 ```
 
 ### Test of HWE assuming sdMAF
 
 ```r
-RA_Xchr_github(gF = female_sample, gM = male_sample, snp_type='NPR', sdMAF = TRUE, joint_test = FALSE)
+RA_Xchr(gF = female_sample, gM = male_sample, snp_type='NPR', sdMAF = TRUE, joint_test = FALSE)
 [1] 7.260256e-14
 ```
 
@@ -77,14 +79,14 @@ male_sample <- c(85, 218, 13)
 ### Test of HWE assuming no sdMAF
 
 ```r
-RA_Xchr_github(gF = female_sample, gM = male_sample, snp_type='PAR', sdMAF = FALSE, joint_test = FALSE)
+RA_Xchr(gF = female_sample, gM = male_sample, snp_type='PAR', sdMAF = FALSE, joint_test = FALSE)
 [1] 1.032235e-34
 ```
 
 ### Test of HWE assuming sdMAF
 
 ```r
-RA_Xchr_github(gF = female_sample, gM = male_sample, snp_type='PAR', sdMAF = TRUE, joint_test = FALSE)
+RA_Xchr(gF = female_sample, gM = male_sample, snp_type='PAR', sdMAF = TRUE, joint_test = FALSE)
 [1] 1.273039e-33
 ```
 
